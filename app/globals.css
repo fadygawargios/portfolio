@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Custom accent colors */
+    --accent-blue: 210 100% 50%;
+    --accent-green: 142 76% 36%;
+    --accent-purple: 262 83% 58%;
+    --accent-orange: 27 96% 61%;
+    --accent-teal: 173 80% 40%;
+  }
+
+  .dark {
+    --background: 220 6% 10%; /* Darker background #191c21 */
+    --foreground: 210 40% 98%;
+
+    --card: 220 6% 12%; /* Darker card #1d2026 */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 6% 10%; /* #191c21 */
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 220 6% 14%; /* Darker secondary #21242b */
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 6% 14%; /* #21242b */
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 220 6% 16%; /* #252830 */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 6% 18%;
+    --input: 220 6% 18%;
+    --ring: 212.7 26.8% 83.9%;
+
+    /* Custom accent colors - slightly muted for dark mode */
+    --accent-blue: 210 70% 40%;
+    --accent-green: 142 46% 35%;
+    --accent-purple: 262 53% 47%;
+    --accent-orange: 27 76% 51%;
+    --accent-teal: 173 60% 35%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom gradient dividers */
+.gradient-divider {
+  @apply h-0.5 w-1/2 mx-auto mb-10 rounded-full bg-gradient-to-r from-blue-400/70 via-teal-300/70 to-blue-400/70;
+}
+
+/* Responsive text sizing */
+.responsive-title {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium;
+}
+
+.responsive-subtitle {
+  @apply text-xl sm:text-2xl md:text-2xl lg:text-3xl font-medium;
+}
+
+.responsive-text {
+  @apply text-base sm:text-lg md:text-lg lg:text-xl;
+}
+
+/* Badge hover effects */
+.tech-badge {
+  @apply transition-all duration-300;
+}
+
+.tech-badge:hover {
+  @apply transform scale-105;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Section transitions */
+.section-transition {
+  @apply transition-all duration-500;
+}
+
+/* Hero section styles */
+.hero-container {
+  @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+}
+
+.hero-content {
+  @apply relative z-10 text-center;
+}
+
+.hero-background {
+  @apply absolute inset-0;
+}
+
+.hero-gradient {
+  @apply absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background;
+}
+
+/* Animated underline for links */
+.animated-underline {
+  @apply relative;
+}
+
+.animated-underline::after {
+  content: "";
+  @apply absolute bottom-0 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300;
+}
+
+.animated-underline:hover::after {
+  @apply w-full;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-500;
+}
+
+/* Highlighted text styles */
+.highlight {
+  @apply font-medium text-blue-600 dark:text-blue-400;
+}
+
+.highlight-subtle {
+  @apply font-medium;
+}
+
+.highlight-underline {
+  @apply border-b border-blue-400 dark:border-blue-500 pb-0.5;
+}
+
+/* Project highlight animation */
+@keyframes highlight-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(59, 130, 246, 0.3);
+  }
+}
+
+.highlight-project {
+  animation: highlight-pulse 2s ease-in-out;
+}

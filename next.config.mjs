@@ -4,8 +4,8 @@ const isGithubPages = process.env.DEPLOY_ENV === 'GH_PAGES';
 const nextConfig = {
 
   output: 'export',
-  basePath: isGithubPages ? '/fady-portfolio' : '',
-  assetPrefix: isGithubPages ? '/fady-portfolio/' : '',
+  basePath: isGithubPages ? '/portfolio' : '',
+  assetPrefix: isGithubPages ? '/portfolio/' : '',
 
   eslint: {
     ignoreDuringBuilds: true,
